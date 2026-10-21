@@ -1,5 +1,12 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Throughline</title>
+<meta name="description" content="Throughline: plan, track and explain product builds across design and engineering, from brief to launch.">
+<meta name="theme-color" content="#F6F7F9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='9' fill='%234F46E5'/%3E%3Cpath d='M9.5 16.5l4.2 4.2 8.8-9.4' fill='none' stroke='%23fff' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -1163,8 +1170,51 @@ button.env:hover{border-color:var(--line-strong);box-shadow:var(--shadow-2)}
   .ia-pop{width:280px}
   .ia-share-l{flex-basis:100%;margin:2px 0 0}
 }
+/* Open questions, answered in place */
+.oq .panel-head h2{color:var(--warn)}
+.oq-lede{margin:-2px 0 6px;font-size:13px;color:var(--ink-2)}
+.oq-h{display:flex;align-items:center;gap:8px;margin:12px 0 2px;font-size:12.5px;font-weight:650;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-3)}
+.oq-list{display:flex;flex-direction:column}
+.oq-row{display:flex;gap:10px;align-items:flex-start;padding:10px 2px;border-top:1px solid var(--line)}
+.oq-list .oq-row:first-child{border-top:0}
+.oq-main{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0;font-size:13.5px}
+.oq-main > small{font-size:12px}
+.oq-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;justify-content:space-between}
+.oq-asked{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--ok);white-space:nowrap}
+.oq-asked svg{width:13px;height:13px}
+.oq-help{margin:2px 0 4px;font-size:12.5px;color:var(--ink-2)}
+.oq-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:6px}
+.oq-opt{display:flex;flex-direction:column;gap:2px;text-align:left;padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:var(--surface);font:inherit;font-size:13px;color:var(--ink);cursor:pointer}
+.oq-opt:hover{border-color:var(--line-strong)}
+.oq-opt:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.oq-opt[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.oq-opt em{font-style:normal;font-size:12px;line-height:1.4;color:var(--ink-2)}
+.oq-save{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:6px;font-size:12.5px}
+.oq-lines{display:flex;flex-direction:column;gap:4px;margin-top:4px}
+.oq-line{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px dashed var(--line)}
+.oq-line > span:first-child{display:flex;flex-direction:column;min-width:0;font-size:13px}
+.oq-line small{font-size:11.5px}
+.oq-amt{display:inline-flex;align-items:center;flex:none;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);overflow:hidden}
+.oq-amt i{font-style:normal;padding:0 8px;font-size:12.5px;color:var(--ink-3);background:var(--surface-2);align-self:stretch;display:grid;place-items:center}
+.oq-amt input{width:120px;padding:6px 8px;border:0;font-size:13px;background:transparent}
+.oq-amt:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.oq .gap-ans input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+@media (max-width:640px){
+  .oq .panel-head{flex-wrap:wrap}
+  .oq .panel-head .btn{width:100%;justify-content:center}
+  .oq-opts{grid-template-columns:1fr}
+  .oq .gap-ans{flex-wrap:wrap}
+  .oq .gap-ans input{flex-basis:100%}
+  .oq-amt input{width:96px}
+}
+.oq-h .grow{flex:1}
+.oq-h .btn{text-transform:none;letter-spacing:0;font-weight:600}
+.oq-banner{justify-content:space-between}
+.oq-banner p{margin:0;flex:1 1 320px}
 
 </style>
+</head>
+<body>
 <div class="app" id="app">
   <aside class="side" aria-label="Main">
     <button class="brand" data-act="nav" data-view="today" aria-label="Throughline home">
@@ -1270,7 +1320,7 @@ const Live = {
   mcp: null, sample: null, servers: null, tools: false, images: false, limits: null,
   status: {}, // server -> 'on' | 'warn' | 'off' | 'unknown'
   async init() {
-    return; // demo copy: never connects to any account
+    if (!(window.claude && typeof window.claude.use === 'function')) return;
     const [m, s] = await Promise.all([
       window.claude.use('mcp').catch(() => null),
       window.claude.use('sample').catch(() => null)
@@ -1345,9 +1395,35 @@ const meta = id => byId('meta', id) || { id };
 
 const Store = {
   mode: 'local', db: null, assets: null, queues: new Map(), demo: false,
+  // Saves made on this page that the database hasn't echoed back yet. A late or stale
+  // update from the database must never undo them (that looked like "my changes reverted").
+  local: new Map(), GRACE: 120000,
+  merge(col, docs) {
+    const t = now(), out = [], ids = new Set(), pre = col + '/';
+    for (const d of docs) {
+      ids.add(d.id);
+      const k = pre + d.id, loc = this.local.get(k);
+      if (!loc) { out.push(d); continue; }
+      if (loc.inflight) { if (loc.obj) out.push(loc.obj); continue; }
+      if (!loc.obj) { if (t - loc.at > this.GRACE) { this.local.delete(k); out.push(d); } continue; }
+      if ((d.updatedAt || 0) >= (loc.obj.updatedAt || 0) || t - loc.at > this.GRACE) { this.local.delete(k); out.push(d); }
+      else out.push(loc.obj);
+    }
+    for (const [k, loc] of this.local) {
+      if (!k.startsWith(pre)) continue;
+      const id = k.slice(pre.length);
+      if (ids.has(id)) continue;
+      if (!loc.obj) { if (!loc.inflight) this.local.delete(k); continue; }
+      if (!loc.inflight && t - loc.at > this.GRACE) { this.local.delete(k); continue; }
+      out.push(loc.obj);
+    }
+    return out;
+  },
+  track(col, id, obj) { const k = col + '/' + id, loc = this.local.get(k); this.local.set(k, { obj, at: now(), inflight: (loc ? loc.inflight : 0) + 1 }); return k; },
+  settle(k, ok) { const loc = this.local.get(k); if (!loc) return; if (!ok) { this.local.delete(k); return; } loc.inflight = Math.max(0, loc.inflight - 1); loc.at = now(); },
   async init() {
     let db = null;
-    if (false) { // demo copy: always uses fictional sample data
+    if (window.claude && typeof window.claude.use === 'function') {
       try { db = await window.claude.use('db'); } catch (e) { db = null; }
     }
     if (db) {
@@ -1370,7 +1446,7 @@ const Store = {
         let first = true;
         try {
           this.db.collection(col).onSnapshot(snap => {
-            state[col] = snap.docs.map(d => ({ ...d.data(), id: d.id }));
+            state[col] = this.merge(col, snap.docs.map(d => ({ ...d.data(), id: d.id })));
             if (first) { first = false; done(); } else scheduleRender();
           }, err => { console.warn('sync', col, err); if (first) { first = false; done(); } toast('Live updates paused. Reload the page to reconnect.', true); });
         } catch (e) { console.warn(e); if (first) { first = false; done(); } }
@@ -1384,16 +1460,21 @@ const Store = {
     return next;
   },
   async put(col, obj, { quiet = false, render = true } = {}) {
-    obj = clone(obj); obj.updatedAt = now();
+    obj = clone(obj);
     const arr = state[col]; const i = arr.findIndex(x => x.id === obj.id);
+    obj.updatedAt = Math.max(now(), ((i >= 0 ? arr[i].updatedAt : 0) || 0) + 1);
     if (i >= 0) arr[i] = obj; else arr.push(obj);
     if (render) scheduleRender();
+    let k = '', ok = false;
     try {
       if (this.mode === 'cloud') {
+        k = this.track(col, obj.id, obj);
         const { id, ...data } = obj;
         await this.enqueue(col + '/' + id, () => this.db.collection(col).doc(id).set(data));
       } else this.persistLocal();
+      ok = true;
     } catch (e) { console.warn(e); if (!quiet) toast(saveErr(e), true); }
+    finally { if (k) this.settle(k, ok); }
     return obj;
   },
   async patch(col, id, fields, opts) {
@@ -1403,10 +1484,13 @@ const Store = {
   async remove(col, id) {
     state[col] = state[col].filter(x => x.id !== id);
     scheduleRender();
+    let k = '', ok = false;
     try {
-      if (this.mode === 'cloud') await this.enqueue(col + '/' + id, () => this.db.collection(col).doc(id).delete());
+      if (this.mode === 'cloud') { k = this.track(col, id, null); await this.enqueue(col + '/' + id, () => this.db.collection(col).doc(id).delete()); }
       else this.persistLocal();
+      ok = true;
     } catch (e) { console.warn(e); toast(saveErr(e), true); }
+    finally { if (k) this.settle(k, ok); }
   },
   persistLocal() {
     clearTimeout(this._t);
@@ -2248,7 +2332,7 @@ async function askFallbackContext(q) {
 }
 
 /* ================= Demo mode (portfolio copy): fictional data, no connections ================= */
-const DEMO_VERSION = 11;
+const DEMO_VERSION = 10;
 const DEMO_FILES = {
   home: { key: 'DemoHomeLoanApply00001', name: 'Kestrel – Home Loan Apply' },
   cards: { key: 'DemoCardControls000002', name: 'Kestrel – Card Controls' },
@@ -2435,7 +2519,7 @@ function demoSummary(x, aud) {
 }
 function makeDemoDelivery() {
   const d = n => noon(now() + n * DAY);
-  const K = 'demo-kestrel';
+  const K = 'demo-kestrel', C = 'demo-clickaway';
   const ph = (arr) => arr.map(([key, s, e]) => { const base = PHASES.find(x => x.key === key); return { id: key, key, name: base.name, start: d(s), end: d(e), explain: base.explain, deliverable: base.deliverable }; });
   const projects = [
     { id: K, team: ['Ira Menon', 'Riya Sen', 'Kabir Das', 'Nikhil Joshi', 'Arjun Rao', 'Sana Qureshi', 'Maya Pillai', 'Vikram Iyer'], tech: { platforms: ['ios', 'android'], appBuild: 'native', backend: 'java', database: 'postgres', hosting: 'onprem', auth: ['otp'], integrations: ['crm', 'push'], payments: 'none', data: ['personal', 'payment'], laws: ['dpdp'], repo: 'bitbucket', cicd: 'jenkins', testing: ['manual', 'auto-app'], monitoring: ['crash'], environments: ['dev', 'staging', 'prod'], cadence: '2w', notes: '' }, name: 'Kestrel mobile banking app', kind: 'client', audience: 'Kestrel Bank', audienceContact: 'Meera Kulkarni', audienceEmail: 'meera.kulkarni@kestrelbank.example', start: d(-45), launch: d(75), createdAt: d(-45), figmaFiles: Object.values(DEMO_FILES).map(f => f.key), summaries: {},
@@ -2457,7 +2541,12 @@ function makeDemoDelivery() {
         costs: [{ id: 'kc1', line: 'kl-tools', label: 'Figma licences for 8 people (1 year)', cat: 'tools', amount: 120000, date: d(-44), status: 'paid' }, { id: 'kc2', line: 'kl-art', label: 'Stock illustration pack', cat: 'content', amount: 28000, date: d(-20), status: 'paid' }, { id: 'kc5', line: 'kl-sms', label: 'SMS credits for testing', cat: 'services', amount: 15000, date: d(-12), status: 'paid' }, { id: 'kc6', line: 'kl-trav', label: 'Discovery workshop at the bank (2 days)', cat: 'travel', amount: 38000, date: d(-40), status: 'paid' }, { id: 'kc3', line: 'kl-res', label: 'Usability test participants (12)', cat: 'research', amount: 60000, date: d(12), status: 'planned' }, { id: 'kc4', line: 'kl-dev', label: 'Device lab rental for testing', cat: 'qa', amount: 45000, date: d(50), status: 'planned', billable: true }],
         crs: [{ id: 'kcr1', title: 'International usage toggle on card controls', detail: 'Kestrel asked for customers to switch international use on and off, with an OTP check.', days: { design: 2, engineering: 6, qa: 2 }, amount: 147400, timelineDays: 0, status: 'approved', createdAt: d(-27), sentAt: d(-26), decidedAt: d(-22) },
           { id: 'kcr2', title: 'Bill payments in release 1', detail: 'Pay bills and save billers from the app. Meera confirmed it for the first release in sprint 5 planning.', plain: 'New screens to find and pay billers, a connection to the bank’s bill payment provider, and testing on all devices. Most of the time goes into the connection.', days: { design: 6, engineering: 20, qa: 6, pm: 2 }, amount: 506000, timelineDays: 10, status: 'sent', createdAt: d(-7), sentAt: d(-6) }],
-        milestones: [{ id: 'km1', title: 'Contract signing (20%)', amount: 960000, due: d(-45), status: 'paid', invoiceNo: 'BLS-2026-071', invoicedAt: d(-45), paidAt: d(-31) }, { id: 'km2', title: 'UX flows approved (20%)', amount: 960000, due: d(-38), status: 'invoiced', invoiceNo: 'BLS-2026-084', invoicedAt: d(-38) }, { id: 'km3', title: 'Design sign-off (30%)', amount: 1440000, phase: 'design', status: 'planned' }, { id: 'km4', title: 'Launch (30%)', amount: 1440000, phase: 'launch', status: 'planned' }] } }
+        milestones: [{ id: 'km1', title: 'Contract signing (20%)', amount: 960000, due: d(-45), status: 'paid', invoiceNo: 'CNV-2026-071', invoicedAt: d(-45), paidAt: d(-31) }, { id: 'km2', title: 'UX flows approved (20%)', amount: 960000, due: d(-38), status: 'invoiced', invoiceNo: 'CNV-2026-084', invoicedAt: d(-38) }, { id: 'km3', title: 'Design sign-off (30%)', amount: 1440000, phase: 'design', status: 'planned' }, { id: 'km4', title: 'Launch (30%)', amount: 1440000, phase: 'launch', status: 'planned' }] } },
+    { id: C, name: 'Throughline', kind: 'internal', audience: 'Founders', audienceContact: 'Founders', audienceEmail: '', start: d(-21), launch: d(40), createdAt: d(-50), figmaFiles: [], summaries: {},
+      budget: { type: 'internal', model: 'fixed', currency: 'INR', value: 900000, contingency: 5, margin: 0, overhead: 10, tax: 0, terms: 30, start: d(-21), setAt: d(-21), plan: { design: 20, engineering: 60, qa: 10, pm: 10 }, rates: { design: { cost: 6000, bill: 6000 }, engineering: { cost: 7000, bill: 7000 }, qa: { cost: 5000, bill: 5000 }, pm: { cost: 7000, bill: 7000 } },
+        lines: [{ id: 'cl-seats', cat: 'tools', label: 'Licences for the team', planned: 60000, why: 'Usual for an internal tool' }, { id: 'cl-host', cat: 'cloud', label: 'Hosting and storage', planned: 24000, why: 'Usual for an internal tool' }, { id: 'cl-train', cat: 'training', label: 'Training and rollout', planned: 25000, why: 'Usual for an internal tool' }, { id: 'cl-fb', cat: 'research', label: 'Feedback sessions with users', planned: 15000, why: 'Usual for an internal tool' }],
+        costs: [{ id: 'cc1', line: 'cl-seats', label: 'Claude Team seats (3 months)', cat: 'tools', amount: 30000, date: d(-20), status: 'paid' }, { id: 'cc2', line: 'cl-host', label: 'Hosting, first 3 months', cat: 'cloud', amount: 6000, date: d(-14), status: 'paid' }, { id: 'cc3', line: 'cl-fb', label: 'Thank-you vouchers for 6 PMs', cat: 'research', amount: 18000, date: d(-5), status: 'paid' }], crs: [], milestones: [] },
+      phases: ph([['scope', -21, -15], ['design', -14, 6], ['build', -7, 25], ['implement', 20, 30], ['test', 26, 37], ['launch', 38, 40]]) }
   ];
   const tasks = [];
   const T = (pid, phase, track, title, owner, status, o = {}) => tasks.push({ id: `t${tasks.length + 1}`, projectId: pid, phase, track, title, owner, status, type: o.type || 'task', priority: o.priority || 'medium', severity: o.severity || '', estimate: o.est || 1, due: o.due != null ? d(o.due) : 0, detail: o.detail || '', doneWhen: o.doneWhen || '', blocked: o.blocked ? { by: o.blocked[0], note: o.blocked[1], since: d(-o.blocked[2]) } : null, createdAt: d(o.created != null ? o.created : -20), updatedAt: d(o.updated != null ? o.updated : -1), doneAt: status === 'done' ? d(o.doneAt != null ? o.doneAt : -3) : 0, ...(o.bug ? { bug: o.bug } : {}) });
@@ -2491,6 +2580,14 @@ function makeDemoDelivery() {
   T(K, 'test', 'engineering', 'Typo on the account created screen', 'Arjun Rao', 'done', { type: 'bug', severity: 'low', est: 0.25, doneAt: -2, created: -5 });
   T(K, 'test', 'engineering', 'Test plan for the home loan flow', 'Vikram Iyer', 'doing', { est: 2, due: 3 });
   T(K, 'test', 'engineering', 'Regression suite setup', 'Vikram Iyer', 'todo', { est: 3, due: 14 });
+  // Throughline (internal)
+  T(C, 'design', 'design', 'Action inbox layout', 'Riya Sen', 'done', { est: 2, doneAt: -6 });
+  T(C, 'design', 'design', 'Handover walkthrough screens', 'Kabir Das', 'doing', { est: 2, due: 3 });
+  T(C, 'design', 'design', 'Delivery reports: client and team versions', 'Riya Sen', 'todo', { est: 2, due: 5 });
+  T(C, 'build', 'engineering', 'Gmail comment sync', 'Arjun Rao', 'done', { est: 3, doneAt: -4 });
+  T(C, 'build', 'engineering', 'PDF export', 'Maya Pillai', 'review', { est: 2, due: 2 });
+  T(C, 'build', 'engineering', 'Task tracker: Jira or in-house', 'Sana Qureshi', 'blocked', { type: 'issue', est: 1, due: 4, blocked: ['client', 'Founders to decide whether we integrate Jira or keep tasks in-house', 3] });
+  T(C, 'build', 'engineering', 'Report emails go to the wrong thread', 'Arjun Rao', 'todo', { type: 'bug', severity: 'medium', est: 0.5, due: 5, created: -1 });
   const people = [
     { id: 'p-riya-sen', name: 'Riya Sen', role: 'team', discipline: 'design', email: 'riya@studio.example' },
     { id: 'p-kabir-das', name: 'Kabir Das', role: 'team', discipline: 'design', email: 'kabir@studio.example' },
@@ -2930,7 +3027,7 @@ function commentBlock(w, c, marker, compact) {
   w.y += 5;
 }
 async function savePdf(blob, filename) {
-  if (false) {
+  if (Store.mode === 'cloud' && window.claude) {
     const dl = await window.claude.use('downloads').catch(() => null);
     if (!dl) throw new Error('Downloads aren’t available in this view. Open the page in Claude on desktop or the web.');
     try { await dl.save({ filename, data: blob }); return 'saved'; }
@@ -3405,7 +3502,12 @@ function openDrawer(title, body, foot = '', wide = false) {
   d.hidden = false;
   const f = d.querySelector('input:not([type=hidden]):not([disabled]),textarea,select'); if (f && !f.closest('.no-autofocus')) setTimeout(() => f.focus(), 30);
 }
-function closeDrawer() { const d = $('#drawer'); d.hidden = true; d.innerHTML = ''; drawerCtx = null; }
+function closeDrawer() {
+  // Leaving a document's review without applying it: say so, so nobody thinks it was saved
+  const c = drawerCtx; const n = c && c.kind === 'srcreview' && state.notes.find(x => x.id === c.id);
+  const d = $('#drawer'); d.hidden = true; d.innerHTML = ''; drawerCtx = null;
+  if (n && n.extracted && !n.appliedAt && countUpdates(n.extracted)) toast(`Nothing was changed yet. “${clip(n.title, 40)}” waits in Project hub until you press Apply.`);
+}
 let drawerCtx = null;
 const stepsHtml = steps => `<div class="progress">${steps.map(s => `<div class="st ${s.state || ''}"><i></i><span>${esc(s.label)}${s.note ? ` · ${esc(s.note)}` : ''}</span></div>`).join('')}</div>`;
 
@@ -4906,10 +5008,10 @@ function makeFitnessSample(base = now()) {
     ['Arvind Pillai', 'devops', 'DevOps engineer'], ['Kavya Reddy', 'content', 'Fitness content lead (certified trainer)'], ['Nikita Shah', 'data', 'Data analyst']
   ].map(([name, discipline, title]) => ({ id: 'p-' + slug(name), name, role: 'team', discipline, title, email: '', capacity: 4, test: PID }));
   const project = {
-    id: PID, test: true, name: 'FitPulse fitness app', kind: 'client', audience: 'FitPulse Health', audienceContact: 'Anjali Desai', audienceEmail: '', start: d(-14), launch: d(113), createdAt: base, figmaFiles: [], summaries: {},
+    id: PID, test: true, name: 'FitPulse fitness app (test)', kind: 'client', audience: 'FitPulse Health', audienceContact: 'Anjali Desai', audienceEmail: '', start: d(-14), launch: d(113), createdAt: base, figmaFiles: [], summaries: {},
     team: people.map(p => p.name),
     phases: ph([['scope', -14, -1], ['design', -3, 36], ['build', 18, 85], ['implement', 72, 92], ['test', 82, 106], ['launch', 107, 113]]),
-    tech: { platforms: ['ios', 'android', 'web'], appBuild: 'rn', backend: 'node', database: 'postgres', hosting: 'aws', auth: ['otp', 'social'], integrations: ['applehealth', 'healthconnect', 'video', 'push'], payments: 'iap', data: ['health', 'personal'], laws: ['dpdp'], repo: 'github', cicd: 'gha', testing: ['manual', 'auto-app', 'beta'], monitoring: ['crash', 'analytics'], environments: ['dev', 'staging', 'prod'], cadence: '2w', notes: 'Sample project. Launch target mid-January. Web is only an admin panel for trainers to manage workouts. Wearables (Fitbit, Garmin) are phase 2.' },
+    tech: { platforms: ['ios', 'android', 'web'], appBuild: 'rn', backend: 'node', database: 'postgres', hosting: 'aws', auth: ['otp', 'social'], integrations: ['applehealth', 'healthconnect', 'video', 'push'], payments: 'iap', data: ['health', 'personal'], laws: ['dpdp'], repo: 'github', cicd: 'gha', testing: ['manual', 'auto-app', 'beta'], monitoring: ['crash', 'analytics'], environments: ['dev', 'staging', 'prod'], cadence: '2w', notes: 'Test project. Launch target mid-January. Web is only an admin panel for trainers to manage workouts. Wearables (Fitbit, Garmin) are phase 2.' },
     overview: {
       summary: 'FitPulse is a mobile fitness app for people who want short guided workouts at home. Members pick a goal, follow video workouts with a timer, and see their progress and streaks. It is paid by monthly or yearly subscription through the App Store and Google Play, and trainers manage the workout library from a simple admin website.',
       users: ['Busy professionals', 'Home workout beginners', 'FitPulse trainers (admin)'],
@@ -5131,7 +5233,7 @@ function wsNav(ws) {
     ['today', 'Today', ICON.today, todayActions().length],
     ['scope', 'Project hub', ICON.layers, hubPending().length],
     ['roadmap', 'Roadmap', ICON.roadmap, 0],
-    ['ia', 'IA map', ICON.sitemap, p && p.ia ? iaGaps(p).filter(g => g.kind === 'node').length : 0],
+    ['ia', 'IA map', ICON.sitemap, p && p.ia ? openItems(p).length : 0],
     ['budget', 'Budget', ICON.wallet, p ? budgetActions().filter(a => a.kicker.endsWith(p.name)).length : 0],
     ['tasks', 'All tasks & issues', ICON.tasks, deliveryNavCounts().blocked],
     ['reports', 'Reports', ICON.report, 0],
@@ -5220,6 +5322,7 @@ function viewTech() {
   return `<div class="page-head"><div><span class="eyebrow">${esc(p.name)}</span><h1>Tech setup</h1><p class="lede">How the product is built, in plain words. Each choice says what it means for time, cost and risk. Answers found in your documents show where they came from.</p></div>
       ${client ? '' : `<div class="head-actions"><button class="btn btn-sm" data-act="hub-add" data-tab="file" title="Answers are filled in from tech proposals, briefs and meeting notes">${ICON.upload}Fill from a document</button>${open.length ? `<button class="btn btn-sm" data-act="tech-ask">${ICON.copy}Ask the tech lead (${open.length})</button>` : ''}<button class="btn btn-sm btn-primary" data-act="tech-open">${rows.length ? 'Edit tech setup' : 'Fill in tech setup'}</button></div>`}</div>
     ${client ? '' : `<div class="tech-progress"><span class="bar"><i style="width:${Math.round(answered / (TECH_Q.length - 1) * 100)}%"></i></span><span class="muted num">${answered} of ${TECH_Q.length - 1} answered</span></div>`}
+    ${client ? '' : oqPanel(p, { only: 'tech', from: 'tech' })}
     ${rows.length ? groups.map(g => { const rs = rows.filter(r => r.q.group === g && r.q.id !== 'notes'); return rs.length ? `<section class="panel"><div class="panel-head"><h2>${esc(g)}</h2></div><div class="howbuilt flat">${rs.map(r => hbRow(r, client)).join('')}</div></section>` : ''; }).join('') : `<div class="empty"><strong>No tech setup yet</strong>${client ? '' : `Answer the questions, or copy them for your tech lead.<button class="btn btn-primary btn-sm" data-act="tech-open">Fill in tech setup</button>`}</div>`}
     ${techAnswer(p, 'notes') ? `<section class="panel"><div class="panel-head"><h2>Notes and constraints</h2></div><p style="font-size:14px">${esc(techAnswer(p, 'notes'))}</p></section>` : ''}
     ${ov && (ov.how_built || []).length ? `<section class="panel"><div class="panel-head"><h2>The pieces, in everyday terms</h2></div><dl class="gloss">${ov.how_built.map(h => `<dt>${esc(h.piece)}</dt><dd>${esc(h.plain)}</dd>`).join('')}</dl></section>` : ''}
@@ -6216,7 +6319,7 @@ Risks
   'test-fitpulse': [
     { key: 'fp-sow', origin: 'drive', kind: 'contract', title: 'FitPulse – Statement of work (signed)', fmt: 'PDF', pages: 6, date: -16, sub: 'PDF · signed by FitPulse Health',
       text: `Statement of work: FitPulse mobile app (MVP)
-Between Brightlane Studio and FitPulse Health. Signed by both parties.
+Between Canvs Studio and FitPulse Health. Signed by both parties.
 
 1. Scope
 Design and build the FitPulse MVP: onboarding, guided video workouts, progress and streaks, subscriptions, reminders, Apple Health and Health Connect sync, and a web admin panel for trainers. Out of scope: nutrition tracking, wearables, coach chat.
@@ -8285,7 +8388,7 @@ function makeStoreSample(base = now()) {
   ].map(([name, discipline, title]) => ({ id: 'p-' + slug(name), name, role: 'team', discipline, title, email: '', capacity: 4, test: PID }));
   const month = n => { const x = new Date(base); x.setDate(1); x.setMonth(x.getMonth() + n); return x.toLocaleString('en-GB', { month: 'long', year: 'numeric' }); };
   const project = {
-    id: PID, test: PID, name: 'Marigold Home online store', kind: 'client', audience: 'Marigold Home', audienceContact: 'Ritika Bose', audienceEmail: 'ritika.bose@marigoldhome.example',
+    id: PID, test: PID, name: 'Marigold Home online store (sample)', kind: 'client', audience: 'Marigold Home', audienceContact: 'Ritika Bose', audienceEmail: 'ritika.bose@marigoldhome.example',
     start: d(-40), launch: d(55), createdAt: base - 70 * DAY, figmaFiles: [], summaries: {}, team: people.map(p => p.name),
     phases: ph([['scope', -40, -31], ['design', -30, 2], ['build', -10, 35], ['implement', 28, 42], ['test', 36, 50], ['launch', 51, 55]]),
     tech: { platforms: ['web'], backend: 'node', database: 'postgres', hosting: 'vercel', auth: ['email', 'social'], integrations: [], payments: 'web', data: ['personal', 'payment'], laws: ['dpdp'], repo: 'github', cicd: 'gha', testing: ['manual', 'auto-web'], monitoring: ['analytics', 'uptime'], environments: ['dev', 'staging', 'prod'], cadence: '2w', notes: 'Sample project with made-up data. An online store for a home decor brand, with card and UPI checkout through a payment gateway.' },
@@ -8393,16 +8496,7 @@ function iaSiblings(ia, id) { const f = iaFind(ia, id); if (!f) return null; ret
 
 /* ---- Everything still missing before the team can start ---- */
 function iaGaps(p) {
-  const out = [];
-  if (p.ia) iaWalk(p.ia.steps, (n, path) => { if (n.gap && !n.gapDone) out.push({ kind: 'node', id: n.id, where: [...path.map(x => x.title), n.title].join(' › '), text: n.gap, client: true }); });
-  if (p.kind !== 'internal' && !p.audienceEmail) out.push({ kind: 'project', text: 'The client contact’s email is missing, so the IA can’t be emailed to them.', where: 'Project details' });
-  const b = budgetOf(p);
-  if (!b) out.push({ kind: 'budget', text: 'The brief has no budget or commercial terms. Set up the budget.', where: 'Budget' });
-  else { const n = b.lines.filter(l => !(Number(l.planned) > 0) && !b.costs.some(c => c.line === l.id)).length; if (n) out.push({ kind: 'budget', text: `${plural(n, 'budget line')} ${n === 1 ? 'needs' : 'need'} an amount.`, where: 'Budget' }); }
-  const open = techOpen(p).length; if (open) out.push({ kind: 'tech', text: `${plural(open, 'tech question')} ${open === 1 ? 'isn’t' : 'aren’t'} answered yet.`, where: 'Tech setup' });
-  const asks = projTasks(p).filter(t => t.status === 'blocked' && t.blocked && t.blocked.by === 'client' && /^Answer needed/i.test(t.title)).length;
-  if (asks) out.push({ kind: 'asks', text: `${plural(asks, 'question')} for ${audName(p)} ${asks === 1 ? 'is' : 'are'} waiting for an answer.`, where: 'All tasks & issues' });
-  return out;
+  return openItems(p).map(it => ({ kind: it.kind === 'contact' ? 'project' : it.kind, id: it.id, text: it.kind === 'contact' ? 'The client contact’s email is missing, so the IA can’t be emailed to them.' : it.text.replace(/([^.?!])$/, '$1.'), where: it.where, client: it.client }));
 }
 
 /* ---- Drawing the map: main journey across the top, branches below, like an IA sheet ---- */
@@ -8596,12 +8690,13 @@ function viewIA() {
       <button class="btn btn-sm" data-act="ia-email" data-aud="${client ? 'client' : 'team'}">${ICON.mail}Email</button><button class="btn btn-sm" data-act="ia-pdf">${ICON.download}PDF</button><button class="btn btn-sm" data-act="ia-png">${ICON.image}Image</button><button class="btn btn-sm" data-act="ia-copy">${ICON.copy}Copy</button>${client ? '' : `<button class="btn btn-sm" data-act="ia-notion">${ICON.notion || ICON.ext}Notion</button>`}
       <span class="grow"></span>${client ? '' : `<button class="btn btn-ghost btn-sm" data-act="ia-rebuild" title="Draw the map again from the brief">${ICON.refresh || ICON.sync}Redraw from brief</button>`}</div>
     <p class="muted ia-status">${iaStatus(ia)} · <span>${client ? 'This is what the client sees: no engineering notes or internal details.' : 'Switch to Client view at the top to see what the client gets, without engineering notes.'}</span></p>
+    ${team ? oqBanner(p) : ''}
     <section class="panel"><div class="panel-head"><h2>Product map</h2><span class="sub">${plural(c.steps, 'step')} · ${plural(c.screens, 'screen')}${team && c.tech ? ` · ${plural(c.tech, 'engineering note')}` : ''}</span>${editing ? '' : `<span class="seg ia-zoom" role="group" aria-label="Map size"><button class="${fit ? 'on' : ''}" data-act="ia-zoom" data-z="fit" aria-pressed="${fit}">Fit to screen</button><button class="${fit ? '' : 'on'}" data-act="ia-zoom" data-z="1" aria-pressed="${!fit}">Actual size</button></span>`}</div>
       ${ui.iaEdit && team ? `<p class="ia-hint">${ICON.edit}Click any box to rename it, add screens below it, add a note, an engineering note or a gap. <button class="link-btn" data-act="ia-add-step">${ICON.plus}Add a step at the end</button></p>` : ''}
       <div class="ia-scroll${fit ? ' fit' : ''}"><div class="ia-canvas"${fit ? '' : ` style="width:${L.W}px;height:${L.H}px"`}>${svg}${team && !fit ? iaPopover(p, L) : ''}</div></div>
       <div class="ia-legend"><span><i class="lg step"></i>Main journey step</span><span><i class="lg l1"></i>Screen or option</span><span><i class="lg l2"></i>Detail</span>${team ? '<span><i class="lg tech">⚙</i>What powers it (engineering)</span>' : ''}<span><i class="lg gap">?</i>Gap to fill</span></div></section>
-    ${gaps.length ? `<section class="panel ia-gaps"><div class="panel-head"><h2>${client ? 'Questions for you' : `${plural(gaps.length, 'gap')} to fill before the team starts`}</h2>${client ? '' : '<span class="sub">Answer here, or edit the map</span>'}</div>
-      <div class="gap-list">${gaps.map((g, i) => `<div class="gap-row"><span class="gap-ic" aria-hidden="true">?</span><div class="gap-main"><b>${esc(g.text)}</b><small class="muted">${esc(g.where)}</small>${g.kind === 'node' && !client && ui.iaAns === g.id ? `<div class="gap-ans"><input data-gap-ans="${esc(g.id)}" placeholder="Type the answer, it’s added to the map as a note" autofocus><button class="btn btn-sm btn-primary" data-act="ia-gap-answer" data-id="${esc(g.id)}">Save</button></div>` : ''}</div>${client ? '' : g.kind === 'node' ? `<span class="gap-acts"><button class="btn btn-ghost btn-sm" data-act="ia-gap-ans" data-id="${esc(g.id)}">Answer</button><button class="btn btn-ghost btn-sm" data-act="ia-gap-open" data-id="${esc(g.id)}">Show</button></span>` : g.kind === 'project' ? `<button class="btn btn-ghost btn-sm" data-act="project-edit" data-project="${esc(p.id)}">Add email</button>` : g.kind === 'budget' ? `<button class="btn btn-ghost btn-sm" data-act="nav" data-view="budget">Open budget</button>` : g.kind === 'tech' ? `<button class="btn btn-ghost btn-sm" data-act="nav" data-view="tech">Open tech setup</button>` : `<button class="btn btn-ghost btn-sm" data-act="nav" data-view="tasks">Open</button>`}</div>`).join('')}</div></section>` : `<div class="banner ok"><p><b>No gaps.</b> ${client ? 'Everything we need is answered.' : 'The map, budget and tech setup are complete enough for the team to start.'}</p></div>`}
+    ${client ? (gaps.length ? `<section class="panel ia-gaps"><div class="panel-head"><h2>Questions for you</h2></div><div class="gap-list">${gaps.map(g => `<div class="gap-row"><span class="gap-ic" aria-hidden="true">?</span><div class="gap-main"><b>${esc(g.text)}</b><small class="muted">${esc(g.where)}</small></div></div>`).join('')}</div></section>` : `<div class="banner ok"><p><b>No open questions.</b> Everything we need is answered.</p></div>`)
+      : (oqPanel(p, { from: 'ia' }) || `<div class="banner ok"><p><b>No gaps.</b> The map, budget and tech setup are complete enough for the team to start.</p></div>`)}
     <section class="panel"><div class="panel-head"><h2>What we’re building</h2>${client ? '' : `<span class="sub">${ui.iaEdit ? 'Click the text to edit it' : ''}</span>`}</div>
       <div class="ia-intro" id="ia-intro" ${ui.iaEdit && team ? 'contenteditable="true" data-act-blur="ia-intro"' : ''}>${esc(intro) || '<span class="muted">No summary yet.</span>'}</div>
       ${feats.length ? `<div class="ia-feats">${feats.map(f => `<div class="ia-feat"><span class="chip ${f.size === 'L' ? 'warn' : f.size === 'S' ? 'ok' : 'info'}">${f.size === 'L' ? 'Large' : f.size === 'S' ? 'Small' : 'Medium'}</span><b>${esc(f.name)}</b><span class="muted">${esc(f.plain || '')}</span></div>`).join('')}</div>` : ''}
@@ -8855,7 +8950,7 @@ async function startFromBrief({ file = null, text = '', title = '', team = [] })
       const bz = raw.basics || {}; const S = (v, k) => String(v == null ? '' : v).replace(/\s+/g, ' ').trim().slice(0, k);
       const start = fromInput(S(bz.start, 10)) || start0; let launch = fromInput(S(bz.launch, 10)) || 0;
       if (!launch || launch < start + 21 * DAY) launch = start + 120 * DAY;
-      p = { ...clone(state.projects.find(x => x.id === p.id)), name: S(bz.name, 80) || p.name, kind: bz.kind === 'internal' ? 'internal' : 'client', audience: S(bz.client, 80), audienceContact: S(bz.client_contact, 80), audienceEmail: emailOf(S(bz.client_email, 120)), start, launch, phases: makePhases(start, launch) };
+      p = { ...clone(state.projects.find(x => x.id === p.id) || p), name: S(bz.name, 80) || p.name, kind: bz.kind === 'internal' ? 'internal' : 'client', audience: S(bz.client, 80), audienceContact: S(bz.client_contact, 80), audienceEmail: emailOf(S(bz.client_email, 120)), start, launch, phases: makePhases(start, launch) };
       await Store.put('projects', p, { render: false });
       s.note = `${fmtShort(start)} to launch on ${fmtShort(launch)} · 6 phases`;
     });
@@ -8863,18 +8958,20 @@ async function startFromBrief({ file = null, text = '', title = '', team = [] })
     let res;
     await run('fill', async s => {
       const x = tidySource(raw, p, { maxTasks: 40 }); x.at = now();
+      // A brand-new project has no earlier plan, so nothing in the brief is a change request
+      x.scope_changes = [];
       await Store.put('notes', { ...state.notes.find(y => y.id === n.id), extracted: x, processedAt: now(), appliedAt: 0, stale: false }, { render: false });
       const lists = { t: x.tasks, b: x.blockers, q: x.questions, r: x.risks, f: (x.project || {}).features || [] };
       const on = k => { const m = /^([a-z]+)(\d+)$/.exec(k); if (!m || !lists[m[1]]) return true; const it = lists[m[1]][+m[2]]; return !(it && it.dup); };
       const owner = k => { const m = /^t(\d+)$/.exec(k); if (!m) return ''; const t = x.tasks[+m[1]]; return (t && (t.owner || suggestOwner({ track: t.track, type: t.type, status: 'todo' }, state.projects.find(y => y.id === p.id)))) || ''; };
       res = await applySource(n.id, { on, owner });
-      p = clone(state.projects.find(y => y.id === p.id));
+      p = clone(state.projects.find(y => y.id === p.id) || p);
       if (p.overview && !(p.overview.how_built || []).length) { p.overview.how_built = howBuiltFromTech(p); await Store.put('projects', p, { render: false }); }
       const ts = projTasks(p); const a = res.a || {};
       s.note = `${plural(((p.overview || {}).features || []).length, 'feature')} · ${plural(a.tech, 'tech answer')} · ${plural(ts.filter(t => t.track === 'design').length, 'design task')} · ${plural(ts.filter(t => t.track === 'engineering').length, 'engineering task')}`;
     });
     await run('budget', async s => {
-      p = clone(state.projects.find(y => y.id === p.id));
+      p = clone(state.projects.find(y => y.id === p.id) || p);
       if (!p.budget) { s.note = 'No commercial terms in the brief. Set it up later.'; return; }
       const b = budgetOf(p); const bt = (raw.basics || {}).project_type;
       b.type = PTYPES[bt] ? bt : guessType(p);
@@ -8885,15 +8982,15 @@ async function startFromBrief({ file = null, text = '', title = '', team = [] })
       s.note = `${BILLING[b.model][0]} ${money(b.value || b.cap || b.monthly, b.currency, { compact: true })} · ${plural(b.milestones.length, 'payment')} · budget ${money(x.total, b.currency, { compact: true })}`;
     });
     await run('ia', async s => {
-      const ia = await iaRead(state.projects.find(y => y.id === p.id), n);
-      p = clone(state.projects.find(y => y.id === p.id));
+      const ia = await iaRead(state.projects.find(y => y.id === p.id) || p, n);
+      p = clone(state.projects.find(y => y.id === p.id) || p);
       p.ia = { ...ia, at: now(), by: Store.demo || !Live.sample ? 'Sample' : 'Claude', source: { id: n.id, label: n.title }, shares: [] };
       await Store.put('projects', p, { render: false });
       const c = iaCount(p.ia); s.note = `${plural(c.screens, 'screen')} across ${plural(c.steps, 'step')}${c.tech ? ` · ${plural(c.tech, 'engineering note')}` : ''}`;
     });
     let gaps = [];
-    await run('gaps', async s => { gaps = iaGaps(state.projects.find(y => y.id === p.id)); s.note = gaps.length ? `${plural(gaps.length, 'gap')} to fill` : 'None found'; });
-    p = state.projects.find(y => y.id === p.id); R = derive(); render();
+    await run('gaps', async s => { gaps = iaGaps(state.projects.find(y => y.id === p.id) || p); s.note = gaps.length ? `${plural(gaps.length, 'gap')} to fill` : 'None found'; });
+    p = state.projects.find(y => y.id === p.id) || p; R = derive(); render();
     kickoffDone(p, n, gaps);
   } catch (e) {
     console.warn('kickoff', e);
@@ -9086,6 +9183,195 @@ const DEMO_RAILGO = {
   ] }
 };
 
+/* ================= Open questions: everything still missing, answered in place ================= */
+// Tech questions the team decides for itself; the rest can go to the client's SPOC
+const TECH_TEAM = ['repo', 'cicd', 'testing', 'monitoring', 'environments', 'cadence'];
+const spocOf = p => { const c = clientContact(p) || {}; return { name: String(c.name || p.audienceContact || '').split(',')[0].trim() || audName(p), email: emailOf(c.email || p.audienceEmail || '') }; };
+const askText = t => String((t.blocked && t.blocked.note) || t.title.replace(/^Answer needed:\s*/i, '')).trim();
+const isClientAsk = t => t.status === 'blocked' && t.blocked && t.blocked.by === 'client' && /^Answer needed/i.test(t.title);
+// Two questions about the same thing ("How long should a QR ticket work offline?" / "…keep working offline?")
+const Q_STOP = new Set('a an the is are was be been do does did will would should can could how many much what which who whom when where why to of in on at by for with or and we you our your their they it its this that there any need needed use used yet'.split(' '));
+const qWords = s => new Set(norm(s).replace(/[^\p{L}\p{N} ]+/gu, ' ').split(/\s+/).filter(w => w.length > 1 && !Q_STOP.has(w)).map(w => w.length > 4 ? w.slice(0, 4) : w));
+function sameQuestion(a, b) { const A = qWords(a), B = qWords(b); if (A.size < 2 || B.size < 2) return false; let i = 0; for (const w of A) if (B.has(w)) i++; return i >= 2 && i / Math.min(A.size, B.size) >= 0.6; }
+
+const askedAt = a => typeof a === 'number' ? a : (a && a.at) || 0;
+const askedTo = a => (a && typeof a === 'object' && a.to) || '';
+function openItems(p) {
+  if (!p) return [];
+  const out = [], asked = p.asked || {}, used = new Set();
+  const asks = projTasks(p).filter(isClientAsk);
+  if (p.ia) iaWalk(p.ia.steps, (n, path) => {
+    if (!n.gap || n.gapDone) return;
+    const ts = asks.filter(t => !used.has(t.id) && sameQuestion(askText(t), n.gap)); ts.forEach(t => used.add(t.id));
+    out.push({ key: 'node:' + n.id, kind: 'node', id: n.id, text: n.gap, where: [...path.map(x => x.title), n.title].join(' › '), client: true, tasks: ts.map(t => t.id), askedAt: Math.max(askedAt(asked['node:' + n.id]), ...ts.map(t => t.blocked.askedAt || 0)), askedTo: askedTo(asked['node:' + n.id]) });
+  });
+  for (const t of asks) if (!used.has(t.id)) out.push({ key: 'ask:' + t.id, kind: 'ask', id: t.id, text: askText(t), where: 'Question from the brief', client: true, askedAt: t.blocked.askedAt || 0 });
+  for (const q of techOpen(p)) out.push({ key: 'tech:' + q.id, kind: 'tech', id: q.id, q, text: q.q, where: `Tech setup · ${q.group}`, client: !TECH_TEAM.includes(q.id), unsure: [].concat(techAnswer(p, q.id) || []).includes('unsure'), askedAt: askedAt(asked['tech:' + q.id]), askedTo: askedTo(asked['tech:' + q.id]) });
+  if (p.kind !== 'internal' && !p.audienceEmail) out.push({ key: 'contact', kind: 'contact', text: 'The client SPOC’s email is missing', where: 'Project details', client: false });
+  const b = budgetOf(p);
+  if (!b) out.push({ key: 'budget', kind: 'budget', text: 'There’s no budget yet', where: 'Budget', client: false, lines: [] });
+  else { const ls = b.lines.filter(l => !(Number(l.planned) > 0) && !b.costs.some(c => c.line === l.id)); if (ls.length) out.push({ key: 'budget', kind: 'budget', text: `${plural(ls.length, 'budget line')} ${ls.length === 1 ? 'needs' : 'need'} an amount`, where: 'Budget', client: false, lines: ls }); }
+  return out;
+}
+
+/* ---- The section ---- */
+function oqRow(p, it, { from }) {
+  const spoc = spocOf(p);
+  const asked = it.askedAt ? `<span class="oq-asked">${ICON.mail}Asked ${esc(firstName(it.askedTo || (it.client ? spoc.name : 'the team')))} ${esc(agoText(it.askedAt))}</span>` : '';
+  const head = `<div class="oq-top"><b>${esc(it.text)}</b>${asked}</div><small class="muted">${esc(it.where)}${it.kind === 'node' && from === 'ia' ? ` · <button class="link-btn" data-act="ia-gap-open" data-id="${esc(it.id)}">Show on map</button>` : ''}</small>`;
+  let body = '';
+  if (it.kind === 'node' || it.kind === 'ask') {
+    body = `<div class="gap-ans"><input data-oq-ans="${esc(it.key)}" placeholder="Type the answer here" aria-label="Answer: ${esc(it.text)}"><button class="btn btn-sm btn-primary" data-act="oq-answer" data-key="${esc(it.key)}">Save</button></div>`;
+  } else if (it.kind === 'tech') {
+    const q = it.q; const multi = q.type === 'multi';
+    const cur = (ui.oqSel && ui.oqSel[q.id]) || [].concat(techAnswer(p, q.id) || []).filter(v => v !== 'unsure');
+    body = `<p class="oq-help">${esc(q.help)}${it.unsure ? ' <b>Marked “not sure” so far.</b>' : ''}${multi ? ' Pick all that apply.' : ''}</p>
+      <div class="oq-opts" role="group" aria-label="${esc(q.q)}">${q.options.map(o => `<button class="oq-opt" data-act="oq-pick" data-q="${esc(q.id)}" data-v="${esc(o[0])}" aria-pressed="${cur.includes(o[0])}"><b>${esc(o[1])}</b><em>${esc(o[2])}</em></button>`).join('')}</div>
+      ${multi ? `<div class="oq-save"><button class="btn btn-sm btn-primary" data-act="oq-tech-save" data-q="${esc(q.id)}" ${cur.length ? '' : 'disabled'}>Save answer</button><span class="muted">${cur.length ? `${cur.length} picked` : 'Nothing picked yet'}</span></div>` : ''}`;
+  } else if (it.kind === 'contact') {
+    body = `<div class="gap-ans"><input id="oq-cname" value="${esc(String(p.audienceContact || '').split(',')[0])}" placeholder="SPOC name" aria-label="SPOC name"><input id="oq-cemail" type="email" placeholder="name@client.com" aria-label="SPOC email"><button class="btn btn-sm btn-primary" data-act="oq-contact-save">Save</button></div>`;
+  } else if (it.kind === 'budget') {
+    const b = budgetOf(p);
+    body = !b ? `<div class="oq-save"><button class="btn btn-sm btn-primary" data-act="budget-setup" data-project="${esc(p.id)}">Set up the budget</button></div>`
+      : `<div class="oq-lines">${it.lines.slice(0, 8).map(l => `<label class="oq-line"><span>${esc(l.label)}${l.hint ? `<small class="muted">${esc(l.hint)}</small>` : ''}</span><span class="oq-amt"><i>${esc(currencySym(b.currency))}</i><input type="number" min="0" step="1000" inputmode="numeric" data-oq-line="${esc(l.id)}" placeholder="0" aria-label="Amount for ${esc(l.label)}"></span></label>`).join('')}</div>
+        <div class="oq-save"><button class="btn btn-sm btn-primary" data-act="oq-budget-save">Save amounts</button>${it.lines.length > 8 ? `<span class="muted">and ${plural(it.lines.length - 8, 'more line')} in</span>` : ''}<button class="link-btn" data-act="nav" data-view="budget">Open budget</button></div>`;
+  }
+  return `<div class="oq-row" data-key="${esc(it.key)}"><span class="gap-ic" aria-hidden="true">?</span><div class="oq-main">${head}${body}</div></div>`;
+}
+function oqPanel(p, { only = '', from = '' } = {}) {
+  const items = openItems(p).filter(it => !only || it.kind === only);
+  if (!items.length) return '';
+  const spoc = spocOf(p); const forClient = items.filter(it => it.client), forTeam = items.filter(it => !it.client);
+  const who = firstName(spoc.name) || 'the client';
+  const lastAsk = Math.max(0, ...forClient.map(it => it.askedAt || 0));
+  const cta = forClient.length ? `<button class="btn btn-sm btn-primary" data-act="oq-email" data-only="${esc(only)}">${ICON.mail}${lastAsk ? 'Email the SPOC again' : `Email ${plural(forClient.length, 'question')} to the SPOC`}</button>` : '';
+  const teamTech = forTeam.filter(it => it.kind === 'tech'); const tl = techLead(p);
+  const teamCta = teamTech.length ? `<button class="btn btn-ghost btn-sm" data-act="oq-email" data-to="team" data-only="${esc(only)}">${ICON.mail}Email ${tl ? esc(firstName(tl.name)) : 'the tech lead'}</button>` : '';
+  const title = only === 'tech' ? `Still to answer: ${plural(items.length, 'tech question')}` : `${plural(items.length, 'thing')} to answer before the team starts`;
+  return `<section class="panel oq" id="oq-${only || 'all'}"><div class="panel-head"><h2>${esc(title)}</h2>${cta}</div>
+    <p class="oq-lede">Answer right here. The tech setup, IA map, budget and tasks update as soon as you save.${forClient.length ? ` The SPOC is <b>${esc(spoc.name)}</b>${spoc.email ? ` (${esc(spoc.email)})` : ', no email yet'}.` : ''}</p>
+    ${forClient.length ? `<h3 class="oq-h">For ${esc(who)} at ${esc(audName(p))}<span class="chip info">${forClient.length}</span></h3><div class="oq-list">${forClient.map(it => oqRow(p, it, { from })).join('')}</div>` : ''}
+    ${forTeam.length ? `<h3 class="oq-h">For you and the team<span class="chip">${forTeam.length}</span>${teamCta ? `<span class="grow"></span>${teamCta}` : ''}</h3><div class="oq-list">${forTeam.map(it => oqRow(p, it, { from })).join('')}</div>` : ''}
+  </section>`;
+}
+const currencySym = c => String(CURRENCIES[c] || c || '₹').trim();
+
+function oqBanner(p) {
+  const items = openItems(p); if (!items.length) return '';
+  const c = items.filter(it => it.client).length, t = items.length - c; const spoc = spocOf(p);
+  return `<div class="banner warn oq-banner"><p><b>${plural(items.length, 'thing')} to answer before the team starts.</b> ${[c ? `${c} for ${esc(firstName(spoc.name) || audName(p))} (SPOC)` : '', t ? `${t} for you and the team` : ''].filter(Boolean).join(', ')}. You can answer them right here.</p><span class="head-actions"><button class="btn btn-sm btn-primary" data-act="oq-jump">Answer them</button>${c ? `<button class="btn btn-sm" data-act="oq-email">${ICON.mail}Email the SPOC</button>` : ''}</span></div>`;
+}
+
+/* ---- After a tech answer: everything built from the tech setup follows ---- */
+const HB_NAMES = () => new Set(['Where people use it', 'How the app is built', ...TECH_Q.map(q => q.q.replace(/\?$/, ''))]);
+function techFollow(before, p) {
+  const changed = [];
+  const ov = p.overview;
+  if (ov && (ov.how_built || []).length && ov.how_built.every(h => HB_NAMES().has(h.piece))) {
+    const hb = howBuiltFromTech(p); if (JSON.stringify(hb) !== JSON.stringify(ov.how_built)) { p.overview = { ...ov, how_built: hb }; changed.push('How it’s built'); }
+  }
+  if (p.budget) {
+    const was = new Set(techLines(before).map(l => norm(l[1])));
+    const b = budgetOf(p); let added = 0;
+    for (const l of techLines(p)) {
+      if (was.has(norm(l[1]))) continue;
+      if (b.lines.some(y => norm(y.label) === norm(l[1]) || similar(y.label, l[1]) || (y.cat === l[0] && lineOverlap(y.label, l[1])))) continue;
+      b.lines.push({ id: 'l-' + uid().slice(0, 8), cat: l[0], label: l[1], planned: 0, hint: l[2] || '', why: l[4] || 'From the tech setup' }); added++;
+    }
+    if (added) { p.budget = b; changed.push(`the budget (${plural(added, 'new line')})`); }
+  }
+  return changed;
+}
+async function saveTech(qid, vals) {
+  const before = clone(currentProject()); const p = clone(before); const q = TECH_Q.find(x => x.id === qid); if (!q) return;
+  p.tech = { ...(p.tech || {}), [qid]: q.type === 'multi' ? vals : (vals[0] || '') };
+  p.techSrc = { ...(p.techSrc || {}), [qid]: { label: 'Answered by you', at: now() } };
+  const more = techFollow(before, p);
+  const asked = { ...(p.asked || {}) }; delete asked['tech:' + qid]; p.asked = asked;
+  if (ui.oqSel) delete ui.oqSel[qid];
+  await Store.put('projects', p);
+  const labels = [].concat(p.tech[qid]).map(v => (q.options.find(o => o[0] === v) || [])[1]).filter(Boolean);
+  const left = techOpen(p).length;
+  toast(`Saved: ${labels.join(', ')}.${more.length ? ` Also updated ${joinAnd(more)}.` : ''} ${left ? `${plural(left, 'tech question')} left.` : 'The tech setup is complete.'}`);
+}
+
+Object.assign(A, {
+  'oq-jump': () => { const el = $('#oq-all'); if (!el) return; el.scrollIntoView({ block: 'start', behavior: 'smooth' }); const i = el.querySelector('input, .oq-opt'); if (i) setTimeout(() => i.focus({ preventScroll: true }), 350); },
+  'oq-pick': async el => {
+    const p = currentProject(); const q = TECH_Q.find(x => x.id === el.dataset.q); if (!p || !q) return;
+    if (q.type !== 'multi') { await saveTech(q.id, [el.dataset.v]); return; }
+    ui.oqSel = ui.oqSel || {};
+    const cur = ui.oqSel[q.id] || [].concat(techAnswer(p, q.id) || []).filter(v => v !== 'unsure');
+    ui.oqSel[q.id] = cur.includes(el.dataset.v) ? cur.filter(v => v !== el.dataset.v) : [...cur, el.dataset.v];
+    render();
+  },
+  'oq-tech-save': async el => { const p = currentProject(); const id = el.dataset.q; const vals = (ui.oqSel && ui.oqSel[id]) || [].concat(techAnswer(p, id) || []).filter(v => v !== 'unsure'); if (!vals.length) { toast('Pick at least one.', true); return; } await saveTech(id, vals); },
+  'oq-answer': async el => {
+    const key = el.dataset.key; const inp = $(`[data-oq-ans="${CSS.escape(key)}"]`); const ans = ((inp || {}).value || '').trim();
+    if (!ans) { toast('Type the answer first.', true); if (inp) inp.focus(); return; }
+    const p = currentProject(); const it = openItems(p).find(x => x.key === key); if (!it) return;
+    const done = [];
+    if (it.kind === 'node') {
+      await iaUpdate(ia => { const f = iaFind(ia, it.id); if (!f) return; f.n.gapDone = true; f.n.note = clip([f.n.note, 'Answer: ' + ans].filter(Boolean).join(' · '), 160); });
+      done.push('the IA map');
+    }
+    const tids = it.kind === 'ask' ? [it.id] : it.tasks || [];
+    for (const id of tids) { const t = state.tasks.find(x => x.id === id); if (t) await Store.put('tasks', { ...t, status: 'done', doneAt: now(), answer: ans, detail: clip([t.detail, `Answer from ${audName(p)}: ${ans}`].filter(Boolean).join('\n'), 2000), blocked: { ...t.blocked, answeredAt: now(), answer: ans } }, { render: false }); }
+    if (tids.length) done.push(`closed the client question${tids.length > 1 ? 's' : ''} in tasks`);
+    R = derive(); render();
+    toast(`Answer saved. Updated ${joinAnd(done)}.`);
+  },
+  'oq-contact-save': async () => {
+    const name = ($('#oq-cname') || {}).value.trim(); const email = emailOf(($('#oq-cemail') || {}).value || '');
+    if (!email) { toast('Type a valid email.', true); const i = $('#oq-cemail'); if (i) i.focus(); return; }
+    const p = clone(currentProject()); p.audienceEmail = email; if (name) p.audienceContact = name;
+    await Store.put('projects', p); await rememberEmail(name || email, email, p).catch(() => {});
+    toast(`Saved. ${firstName(name || email)} is the SPOC for ${p.name}.`);
+  },
+  'oq-budget-save': async () => {
+    const vals = $$('[data-oq-line]').map(i => [i.dataset.oqLine, Number(i.value)]).filter(([, v]) => v > 0);
+    if (!vals.length) { toast('Type at least one amount.', true); const i = $('[data-oq-line]'); if (i) i.focus(); return; }
+    const p = clone(currentProject()); const b = budgetOf(p);
+    for (const [id, v] of vals) { const l = b.lines.find(x => x.id === id); if (l) l.planned = Math.round(v); }
+    p.budget = b; await Store.put('projects', p);
+    const x = budgetCalc(p);
+    toast(`Saved ${plural(vals.length, 'amount')}. Budget total is now ${money(x.total, b.currency, { compact: true })}.`);
+  },
+  'oq-email': el => {
+    const p = currentProject(); if (!p) return;
+    const team = el.dataset.to === 'team';
+    const items = openItems(p).filter(it => (team ? !it.client && it.kind === 'tech' : it.client) && (!el.dataset.only || it.kind === el.dataset.only));
+    if (!items.length) { toast(team ? 'No tech questions for the team right now.' : 'No questions for the client right now.'); return; }
+    const tl = techLead(p);
+    const spoc = team ? (tl ? { name: tl.name, email: emailOf(tl.email || '') } : { name: '', email: '' }) : spocOf(p);
+    const qs = items.filter(it => it.kind !== 'tech'), tq = items.filter(it => it.kind === 'tech');
+    let i = 0;
+    const lines = [
+      `Hi ${firstName(spoc.name) || 'there'},`, '',
+      team ? `Could you help me close ${items.length === 1 ? 'this tech setup question' : `these ${items.length} tech setup questions`} for ${p.name}? I need them to plan the work.` : `To get ${p.name} started, we need your answers to ${items.length === 1 ? 'one question' : `these ${items.length} questions`}:`, '',
+      ...qs.map(it => `${++i}. ${it.text}${it.kind === 'node' ? ` (${it.where})` : ''}`),
+      ...(tq.length ? [...(qs.length ? ['', 'About the technical setup:'] : []), ...tq.map(it => `${++i}. ${it.text} Options: ${it.q.options.map(o => o[1]).join(' / ')}`)] : []),
+      '', team ? 'A one-line answer for each is plenty.' : 'A short answer to each is enough. If someone else on your side is better placed to answer, please loop them in.', '', `Thanks,`, signoff()
+    ];
+    openCompose({ title: team ? `Email ${spoc.name ? spoc.name : 'the tech lead'}` : `Email the SPOC: ${spoc.name}`, intro: team ? `${plural(items.length, 'tech question')} for the team. Add or change people below, then send it or save it as a draft.` : `${plural(items.length, 'question')} only ${audName(p)} can answer. Check the message, then send it or save it as a draft. Each question shows when it was asked.`, kind: team ? 'team-ask' : 'spoc-ask', project: p,
+      to: spoc.name || spoc.email ? [{ name: spoc.name, email: spoc.email }] : [], subject: team ? `${p.name}: ${plural(items.length, 'tech question')} to close` : `${p.name}: ${plural(items.length, 'question')} before we start`, body: lines.join('\n'),
+      after: async () => {
+        const q = clone(state.projects.find(x => x.id === p.id) || p); q.asked = { ...(q.asked || {}) };
+        const who = firstName(((drawerCtx && drawerCtx.to) || [])[0] ? drawerCtx.to[0].name : spoc.name);
+        for (const it of items) if (it.kind === 'tech' || it.kind === 'node') q.asked[it.key] = { at: now(), to: who };
+        await Store.put('projects', q, { quiet: true, render: false });
+        const tids = items.flatMap(it => it.kind === 'ask' ? [it.id] : it.tasks || []);
+        for (const id of tids) { const t = state.tasks.find(x => x.id === id); if (t) await Store.put('tasks', { ...t, blocked: { ...t.blocked, askedAt: now() } }, { quiet: true, render: false }); }
+      } });
+  }
+});
+document.addEventListener('keydown', e => {
+  const t = e.target; if (e.key !== 'Enter' || !t || !t.dataset) return;
+  if (t.dataset.oqAns) { e.preventDefault(); A['oq-answer']({ dataset: { key: t.dataset.oqAns } }); }
+  else if (t.dataset.oqLine) { e.preventDefault(); A['oq-budget-save'](); }
+  else if (t.id === 'oq-cemail') { e.preventDefault(); A['oq-contact-save'](); }
+});
+
 /* ================= Boot ================= */
 (async function boot() {
   readHash();
@@ -9100,5 +9386,5 @@ window.__clickaway = { state, ui, Store, Live, DEMO_RAILGO, derive: () => derive
 
 })();
 </script>
-
-</body></html>
+</body>
+</html>
